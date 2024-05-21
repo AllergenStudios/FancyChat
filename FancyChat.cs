@@ -8,7 +8,7 @@ using MCGalaxy.Events.PlayerEvents;
 
 // REQUIRES THE LATEST DEVELOPMENT BUILD OF MCGALAXY!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-// tone indicators code fixed and edited by goodly thank u!!!
+// tone indicators were helped by goodly in the other version but this doesnt use the same code in this version but it still helped me thank u!!!
 
 // You will need to install the latest release of .NET
 // https://dotnet.microsoft.com/en-us/download/dotnet/8.0
