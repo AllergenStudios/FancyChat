@@ -1,4 +1,4 @@
-![fancychatlogosquare](https://github.com/AllergenStudios/FancyChat/assets/128644964/dc00971f-3178-4ad0-be9a-ed56fbf711d0)
+![fancychatlogosquare](https://github.com/AllergenStudios/FancyChat/assets/128644964/84eeaa7c-e4fb-47e2-bcef-d8881df07b00)
 
 # FancyChat
 
