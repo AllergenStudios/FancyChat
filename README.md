@@ -3,7 +3,7 @@
 # FancyChat
 
 ## Overview
-###### ʸᵉˢ ᶦ ʷʳᵒᵗᵉ ᵗʰᶦˢ ʷᶦᵗʰ ᶜʰᵃᵗᵍᵖᵗ
+###### ʸᵉˢ ᶦ ʷʳᵒᵗᵉ ᵗʰᶦˢ ʳᵉᵃᵈᵐᵉ ᶠᶦˡᵉ ʷᶦᵗʰ ᵗʰᵉ ʰᵉˡᵖ ᵒᶠ ᶜʰᵃᵗᵍᵖᵗ ᶦ ᶜᵃⁿⁿᵒᵗ ʷʳᶦᵗᵉ ᶠᵒʳ ᵐʸ ˡᶦᶠᵉ
 
 FancyChat is a powerful and feature-rich chat plugin for ClassiCube, designed to elevate your chat experience to new heights. With its intuitive interface and customizable options, FancyChat offers unparalleled functionality for players and administrators alike.
 
