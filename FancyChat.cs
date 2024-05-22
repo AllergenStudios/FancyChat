@@ -8,7 +8,7 @@ using MCGalaxy.Events.PlayerEvents;
 
 // REQUIRES THE LATEST DEVELOPMENT BUILD OF MCGALAXY!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-// tone indicators were helped by goodly in the other version but this doesnt use the same code in this version but it still helped me thank u!!!
+// tone indicators code fixed and edited by goodly thank u!!!
 
 // You will need to install the latest release of .NET
 // https://dotnet.microsoft.com/en-us/download/dotnet/8.0
@@ -162,44 +162,49 @@ namespace PluginFancyChat
                 string currentTone = GetToneIndicator(sentMessage, toneIndicators, p);
                 msg = "&8[&a" + mapName + "&8]" + HandleTone(currentTone, toneIndicators) + " " + GetChatMessageBadge(p.Rank) + " &3" + displayName + "&7: " + cleanedMessage;
             } else {
-                string cleanedMessage = CleanChatMessage(msg).Replace("&f", "");
-                
-                msg = "";
-                
-                string[] wordsArray = cleanedMessage.Split(' ');
-                List<string> arguments = new List<string>(wordsArray);
-                if (arguments.Count == 1) {
-                    p.Message("&aYou can use these commands to configure FancyChat:");
-                    p.Message("&2Tone Indicators:");
-                    p.Message("&7If you want to modify your tone indicators more thoroughly,");
-                    p.Message("&7you can go into the config file which is located in");
-                    p.Message("&7YourServerDirectory/fancychat/tones.fcfile");
-                    p.Message("&2• &7.fc addtone <tone indicator> <tone prefix>");
-                    p.Message("&2• &7.fc listtones");
-                } else {
-                    if (arguments[1] == "addtone") {
-                        if (arguments.Count < 4 | arguments.Count > 4) {
-                            p.Message("&7.fc addtone <tone indicator> <tone prefix>");
-                        } else {
-                            string filePath = GetFancyChatConfigFile("tones");
-                            string newText = (arguments[2] + " | " + arguments[3]);
-                            AppendLineToFile(filePath, newText);
-                            p.Message("&aCreated the tone prefix &2" + arguments[3] + "&a from the indicator &2" + arguments[2]);
-                        }
-                    } else if (arguments[1] == "listtones") {
-                        if (arguments.Count > 2) {
-                            p.Message("&7.fc listtones");
-                        } else {
-                            Dictionary<string, string> toneIndicators = ReadTonesJson();
-                            p.Message("&aHere are all the tone indicators:");
-                            int index = -1;
-                            foreach (KeyValuePair<string, string> kvp in toneIndicators) {
-                                index++;
-                                p.Message("&7" + index + "&2• &7" + kvp.Key + " &8for &7" + kvp.Value);
+                if (p.Rank == LevelPermission.Owner | p.Rank == LevelPermission.Operator) {
+                    string cleanedMessage = CleanChatMessage(msg).Replace("&f", "");
+                    
+                    msg = "";
+                    
+                    string[] wordsArray = cleanedMessage.Split(' ');
+                    List<string> arguments = new List<string>(wordsArray);
+                    if (arguments.Count == 1) {
+                        p.Message("&aYou can use these commands to configure FancyChat:");
+                        p.Message("&2Tone Indicators:");
+                        p.Message("&7If you want to modify your tone indicators more thoroughly,");
+                        p.Message("&7you can go into the config file which is located in");
+                        p.Message("&7YourServerDirectory/fancychat/tones.fcfile");
+                        p.Message("&2• &7.fc addtone <tone indicator> <tone prefix>");
+                        p.Message("&2• &7.fc listtones");
+                    } else {
+                        if (arguments[1] == "addtone") {
+                            if (arguments.Count < 4 | arguments.Count > 4) {
+                                p.Message("&7.fc addtone <tone indicator> <tone prefix>");
+                            } else {
+                                string filePath = GetFancyChatConfigFile("tones");
+                                string newText = (arguments[2] + " | " + arguments[3]);
+                                AppendLineToFile(filePath, newText);
+                                p.Message("&aCreated the tone prefix &2" + arguments[3] + "&a from the indicator &2" + arguments[2]);
+                            }
+                        } else if (arguments[1] == "listtones") {
+                            if (arguments.Count > 2) {
+                                p.Message("&7.fc listtones");
+                            } else {
+                                Dictionary<string, string> toneIndicators = ReadTonesJson();
+                                p.Message("&aHere are all the tone indicators:");
+                                int index = -1;
+                                foreach (KeyValuePair<string, string> kvp in toneIndicators) {
+                                    index++;
+                                    p.Message("&7" + index + "&2• &7" + kvp.Key + " &8for &7" + kvp.Value);
+                                }
                             }
                         }
                     }
-                }
+                } else {
+                    msg = "";
+                    p.Message("&cThy have no permission to do that.");
+                }   
             }
         }
     }
